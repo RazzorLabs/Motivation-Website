@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoke-Free Journey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+        }
+        .main {
+            margin-top: 20px;
+        }
+        .counter {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .graphic {
+            width: 270px;
+            height: auto;
+            margin: 20px auto;
+        }
+        .quote {
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Congratulations on Your Smoke-Free Journey LENKA!</h1>
+        <h2>Every Day is a Victory</h2>
+    </div>
+    <div class="main">
+        <img src="https://media.giphy.com/media/2rcl1rqpf6qoGwEAmy/giphy.gif" alt="No Smoking Animation" class="graphic">
+        <p class="counter" id="daysCount">0</p><p>DAYS WITHOUT SMOKING</p>
+        <p>You’ve taken the first step towards a healthier life!</p>
+        <p class="quote" id="dailyQuote"></p>
+    </div>
+    <script>
+        const startDate = new Date('2024-08-28');
+        function updateDaysCount() {
+            const today = new Date();
+            const daysCount = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+            document.getElementById('daysCount').textContent = daysCount;
+        }
+        function getRandomQuote() {
+            const quotes = [
+                "The best way to predict the future is to create it.",
+                "Every day without smoking is a victory.",
+                "Believe you can and you're halfway there."
+            ];
+            return quotes[Math.floor(Math.random() * quotes.length)];
+        }
+        document.getElementById('dailyQuote').textContent = getRandomQuote();
+        updateDaysCount();
+        setInterval(updateDaysCount, 86400000); // Update daily
+    </script>
+</body>
+</html>
